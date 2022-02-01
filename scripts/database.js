@@ -7,8 +7,8 @@
 */
 const database = {
     //this new state has to be stored as an object, not an array, string or number 
-    //because the user is going to choose the options?
-    //the user will make choices on metal, size, and style
+    //because the user is going to choose the options- which make up one order object
+    // we aren't pushing all the orders into a bigger array
     orderBuilder: {},
     styles: [
         { id: 1, style: "Classic", price: 500 },
@@ -40,6 +40,7 @@ const database = {
     ]
 }
 
+// here we are making new arrays with copies of the database data
 export const getMetals = () => {
     return database.metals.map(metal => ({...metal}))
 }
@@ -57,7 +58,7 @@ export const getOrders =() =>{
 }
 
 
-// the fuctions resposibility is to set state 
+// the fuctions' resposibility is to set state 
 export const setMetal = (id) => {
     database.orderBuilder.metalId = id
 }
@@ -69,9 +70,11 @@ export const setSize = (id) => {
 export const setStyle = (id) => {
     database.orderBuilder.styleId = id
 }
+
 // when a user clicks a radio button they are changing the state of the app
 // I have to store that state
 //State is always stored in the database or data store for the app
+//the function below stores the new state 
 
 export const addCustomOrder = () => {
     // Copy the current state of user choices

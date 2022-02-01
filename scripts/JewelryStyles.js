@@ -4,12 +4,12 @@ const styles = getStyles()
 
 //listening for when a user makes a choice in the style option
 document.addEventListener(
-   //the type "radio" generate a "change" event
-   //when user 
+   //the input type "radio" generates a "change" event
+   //when user clicks
     "change",
     (event) => {
         if (event.target.name === "style"){
-            setMetal(parseInt(event.target.value))
+            setStyle(parseInt(event.target.value))
         }
     }
 )

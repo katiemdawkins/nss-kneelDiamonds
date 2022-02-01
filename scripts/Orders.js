@@ -8,8 +8,8 @@ const sizes = getSizes()
 
 
 const buildOrderListItem = (order) => {
-
-// Remember that the function you pass to find() must return true/false
+    
+    // Remember that the function you pass to find() must return true/false
     const foundMetal = metals.find(
         (metal) => {
          return metal.id === order.metalId
@@ -21,7 +21,6 @@ const buildOrderListItem = (order) => {
             return style.id === order.styleId
         }
     )
-
 
     const foundSizes = sizes.find (
         (size) => {
@@ -37,7 +36,7 @@ const buildOrderListItem = (order) => {
         })
         return `<li>
             Order #${order.id} cost ${costString}
-     </li>`
+            </li>`
 }
 
 
@@ -50,7 +49,7 @@ export const Orders = () => {
 
     let html = "<ul>"
 
-    const listItems = orders.map(buildOrderListItem)
+    const listItems = orders.map(orderList => {return buildOrderListItem(orderList)})
 
     html += listItems.join("")
     html += "</ul>"
